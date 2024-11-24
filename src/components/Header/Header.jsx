@@ -2,6 +2,7 @@ import React from "react"
 import { useContext } from "react"
 import { levelContext } from "../LevelContext"
  const Header=({children})=>{
+  console.log("chnages")
 
   let level=useContext(levelContext)
   console.log("level", level)
