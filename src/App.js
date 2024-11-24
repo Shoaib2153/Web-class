@@ -1,30 +1,35 @@
 
 
-import React from "react"
-import Heading from "./components/Header/Header"
-import Section from "./components/Section/Section"
+import React,{useState} from "react"
+import Home from "./components/Home"
+import { themecolor } from "./components/Themecolor"
+
 
   
 export const App=()=>{
+  const [theme, settheme]=useState("dark")
+  const [changeColor, setChangeColor]=useState(false)
+  const handleChange=(e)=>{
+    const {value}=e.target
+    settheme(value)
+  }
+  console.log("theme", theme)
     return(
-      <Section >
-      <Heading >Title</Heading>
-      <Section level={2}>
-        <Heading >Heading</Heading>
-        <Heading >Heading</Heading>
-        <Heading >Heading</Heading>
-        <Section>
-          <Heading >Sub-heading</Heading>
-          <Heading >Sub-heading</Heading>
-          <Heading >Sub-heading</Heading>
-          <Section>
-            <Heading >Sub-sub-heading</Heading>
-            <Heading >Sub-sub-heading</Heading>
-            <Heading >Sub-sub-heading</Heading>
-          </Section>
-        </Section>
-      </Section>
-    </Section>
+    <>
+    <div>
+      <label>Select Theme</label>
+      <input type="text" onBlur={handleChange}/>
+      <button onClick={()=>{
+        setChangeColor(true)
+      }}>Change color</button>
+    </div>
+  {
 
+<themecolor.Provider value={changeColor ? theme:"dark"}>
+    <Home/>
+    </themecolor.Provider>
+    
+  }
+    </>
     )
 }
