@@ -3,6 +3,7 @@
 import React,{useState} from "react"
 import Home from "./components/Home"
 import { themecolor } from "./components/Themecolor"
+import PostCreation from "./components/Post"
 import { useContext } from "react"
 
 
@@ -46,6 +47,8 @@ export const App=()=>{
         )
        }
     </div>
+
+    <PostCreation/>
     </div>
     )
 }
